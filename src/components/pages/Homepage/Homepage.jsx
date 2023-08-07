@@ -30,7 +30,7 @@ const Homepage = () => {
   const { expenses } = useSelector((state) => state.budget);
 
   const {
-    daylyTransactions,
+    dailyTransactions,
     weeklyTransactions,
     monthlyTransactions,
     yearlyTransactions,
@@ -53,7 +53,7 @@ const Homepage = () => {
       return Number.parseFloat(accumulator + budget.amount);
     }, 0) || 0;
 
-  const daylyData = chartDataStructure("dayly", daylyTransactions);
+  const daylyData = chartDataStructure("dayly", dailyTransactions);
   const weeklyData = chartDataStructure("weekly", weeklyTransactions);
   const monthlyData = chartDataStructure("monthly", monthlyTransactions);
   const yearlyData = chartDataStructure("yearly", yearlyTransactions);

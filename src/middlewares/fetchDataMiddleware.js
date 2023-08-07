@@ -12,6 +12,7 @@ import {
   saveWeeklyData,
   saveMonthlyData,
   saveYearlyData,
+  DELETE_EXPENSE,
 } from "../actions/fetchDataActions";
 import { axiosPrivate } from "../axios/axiosPrivate";
 import { saveBudgetsState, saveExpensesState } from "../actions/budgetActions";
@@ -124,6 +125,14 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
+    case DELETE_EXPENSE:
+      const expenseId = action.id;
+      axiosPrivate.delete(`/transaction/${expenseId}`)
+        .then((response) => {
+          console.log(response);
+        })
+        break;
+      
 
     default:
   }

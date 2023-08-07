@@ -10,6 +10,8 @@ export const FETCH_BUDGETS = 'FETCH_BUDGETS';
 export const FETCH_EXPENSES ='FETCH_EXPENSES';
 export const SAVE_NEW_BUDGET ='SAVE_NEW_BUDGET';
 export const SAVE_NEW_EXPENSE = 'SAVE_NEW_EXPENSE';
+export const DELETE_BUDGET = 'DELETE_BUDGET';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 
 export const fetchWeeklyData = () => ({
@@ -62,7 +64,18 @@ export const saveNewBudget = (newItem) => ({
     
 })
 
+export const deleteBudget = (id) => ({
+    type: DELETE_BUDGET,
+    id
+})
+
+
 export const saveNewExpense = (newItem) => ({
     type: SAVE_NEW_EXPENSE,
     newItem
+})
+
+export const deleteExpense = (id) => ({
+    type: DELETE_EXPENSE,
+    id
 })

@@ -34,12 +34,7 @@ const AddBudgetForm = () => {
             input.setCustomValidity("");
         }
     };
-    const dispatch = useDispatch()
-
-    const handleSaveNewBudget = (event) => {
-        dispatch(saveNewBudget())
-    }
-
+    
     return (
         <div className="form-wrapper">
             <h2 className="h3">
@@ -75,7 +70,7 @@ const AddBudgetForm = () => {
                     />
                 </div>
                 <input type="hidden" name="_action" value="createBudget"/>
-                <button onClick={handleSaveNewBudget} type="submit" className="btn btn--dark" disabled={isSubmitting}>
+                <button  type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? <span>Création en cours</span> :
                         (

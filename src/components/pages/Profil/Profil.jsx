@@ -20,13 +20,7 @@ const Profil = () => {
     quests,
     items,
   } = useSelector((state) => state.user);
-  // const expenses =
-  //   operations.reduce(
-  //     (accumulator, operations) => accumulator + operations.operation,
-  //     0
-  //   ) || 0;
-  // console.log(expenses);
-  // const progressRate = (wallet * expenses) / 100 || 100;
+  
   const progressRate = 100
 
   return (

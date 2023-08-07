@@ -15,7 +15,7 @@ const initialState = {
 const loginReducer = (state = initialState, action = {}) => {
   switch(action.type) {
     case SAVE_SUCCESSFUL_AUTH:
-      return { ...state, isLogged: true };
+      return { ...state, isLogged: true, email: "", password: "" };
     case CHANGE_EMAIL_FIELD:
       return { ...state, email: action.input };
     case CHANGE_PASSWORD_FIELD:

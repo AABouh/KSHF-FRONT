@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { memoizedRefreshToken } from "./refreshToken";
 
-axios.defaults.baseURL = "https://avid-addition-production.up.railway.app";
+axios.defaults.baseURL = "http://localhost:3000";
 
 axios.interceptors.request.use(
   async (config) => {

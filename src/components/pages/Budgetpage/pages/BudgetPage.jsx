@@ -7,9 +7,15 @@ import {createExpense, deleteItem, getAllMatchingItems} from "../helpers/helpers
 import BudgetItem from "../components/BudgetItem.jsx";
 import AddExpenseForm from "../components/AddExpenseForm.jsx";
 import Table from "../components/Table.jsx";
+import { useSelector } from "react-redux";
+
+
+
+
 
 // création d'un loader
 export async function budgetLoader({ params }) {
+    
     const budget = await getAllMatchingItems({
         category: "budgets",
         key: "id",
@@ -63,7 +69,10 @@ export async function budgetAction({ request }) {
 }
 
 const BudgetPage = () => {
-    const { budget, expenses } = useLoaderData();
+    const { budget } = useLoaderData();
+    const { expenses } = useSelector((state) => state.budget);
+
+
     console.log({budget, expenses})
 
     return (
@@ -85,7 +94,7 @@ const BudgetPage = () => {
                     <h2>
                         <span className="accent">{budget.name}</span>
                     </h2>
-                    <Table expenses={expenses} showBudget={false} />
+                    <Table expenses={expenses.filter(expense => expense.budget_id === budget.id)} showBudget={false} />
                 </div>
             )}
         </div>

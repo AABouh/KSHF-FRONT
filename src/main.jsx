@@ -51,6 +51,8 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 import ProductDetail from "./components/ProductDetailView/ProductDetailView";
 
+import Loading from "./components/Loading/Loading.jsx";
+
 import Aboutus from "./components/pages/Aboutuspage/Aboutus.jsx";
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
+  },
+  {
+    path: "/loading",
+    element: <Loading />,
+  },
+  {
+    path:'/loading',
+    element: <Loading />,
   },
   {
     path: "/signin",

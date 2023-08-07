@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosPublic = axios.create({
-    baseURL: "https://avid-addition-production.up.railway.app",
+    baseURL: "http://localhost:3000",
     headers: {
         "Content-Type": "application/json"
     },

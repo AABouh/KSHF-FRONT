@@ -1,12 +1,15 @@
 import {useFetcher} from "react-router-dom";
 import {useEffect, useRef} from "react";
 import { PlusCircleIcon } from "@heroicons/react/24/solid/index.js";
+import { useDispatch } from "react-redux";
+import { fetchBudgets, fetchExpenses } from "../../../../actions/fetchDataActions.js";
 
 const AddExpenseForm = ({ budgets }) => {
     const fetcher = useFetcher()
     const isSubmitting = fetcher.state === "submitting";
     const formRef = useRef()
     const focusRef = useRef()
+    const dispatch = useDispatch()
 
     useEffect(() =>{
         if(!isSubmitting){
@@ -26,6 +29,13 @@ const AddExpenseForm = ({ budgets }) => {
             input.setCustomValidity("");
         }
     };
+
+    const handleAddExpense = (event) => {
+        dispatch(fetchBudgets())
+        dispatch(fetchExpenses())
+
+    }
+
 
     return (
         <div className="form-wrapper">
@@ -77,7 +87,7 @@ const AddExpenseForm = ({ budgets }) => {
                     </select>
                 </div>
                 <input type="hidden" name="_action" value="createExpense"/>
-                <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
+                <button onClick={handleAddExpense} type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? <span>Création en cours</span> :
                             (
